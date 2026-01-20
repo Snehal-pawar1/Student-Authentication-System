@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="card">
+    <h2>Student Registration</h2>
+
+    {% for message in messages %}
+        <p class="msg">{{ message }}</p>
+    {% endfor %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+            <label>Full Name :</label>
+            <input type="text" name="full_name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="row">
+            <label>Email :</label>
+            <input type="email" name="email" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="row">
+            <label>Mobile :</label>
+            <input type="text" name="mobile" placeholder="Enter your mobile number" required>
+        </div>
+
+        <div class="row">
+            <label>Password :</label>
+            <input type="password" name="password" placeholder="Enter password" required>
+        </div>
+
+        <div class="row">
+            <label>Confirm Password :</label>
+            <input type="password" name="confirm_password" placeholder="Re-enter password" required>
+        </div>
+
+        <button type="submit">Register</button>
+
+        <p class="link">
+            Already registered? <a href="/login/">Login</a>
+        </p>
+    </form>
+</div>
+
+</body>
+</html>
